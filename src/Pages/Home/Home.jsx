@@ -9,6 +9,9 @@ const Home = () => {
                 <p>Find the best products that suit your needs</p>
                 <button>Shop Now</button>
             </div>
+            <div className="product_categories">
+                
+            </div>
         </div>
     );
 };

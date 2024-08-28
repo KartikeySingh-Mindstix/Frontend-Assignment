@@ -10,6 +10,7 @@ const App = () => {
     <div className='container'>
       <Header />
       <div className='content'>
+        <div className='empty_box'></div>
         <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<Home />} />

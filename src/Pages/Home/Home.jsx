@@ -12,7 +12,7 @@ const Home = () => {
         console.log('inside home.js')
         const fetchProducts = async () => {
             try {
-                const productsData = await getLimitedProducts(8); 
+                const productsData = await getLimitedProducts(11); 
                 console.log('Fetched Products:', productsData);
                 setProducts(productsData);
                

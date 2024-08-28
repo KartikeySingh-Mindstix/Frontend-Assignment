@@ -15,14 +15,34 @@ const ProductList = ({ products }) => {
 }
 
 
+// const ProductCard = ({ product }) => {
+//     return (
+//         <div className="product-card">
+//             <img src={product.image} alt={product.title} className="product-image" />
+//             <div className="product-info">
+//                 <h3 className="product-name">{product.name}</h3>
+//                 <p className="product-price">${product.price.toFixed(2)}</p>
+//                 <button className="add-to-cart-btn">Add to Cart</button>
+//             </div>
+//         </div>
+//     );
+// };
+import { useNavigate } from 'react-router-dom'; 
 const ProductCard = ({ product }) => {
-    console.log(product.title)
+    const navigate = useNavigate();
+    const handleCardClick = () => {
+        navigate(`/product/${product.id}`);
+    };
+
     return (
-        <Link to={`/product/${product.id}`} className="product-card">
-            <img src={product.image} alt={product.title} className="product-image" />
-            <h3 className="product-name">{product.title}</h3>
-            <p className="product-price">${product.price}</p>
-        </Link>
+        <div className="product_card" onClick={handleCardClick}>
+            <img src={product.image} alt={product.title} className="product_image" />
+            <div className="product_info">
+                <h3 className="product_title">{product.title}</h3>
+                <p className="product_category">{product.category}</p>
+                <p className="product_price">${product.price.toFixed(2)}</p>
+            </div>
+        </div>
     );
 };
 

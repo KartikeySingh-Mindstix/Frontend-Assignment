@@ -1,0 +1,70 @@
+.plp_section {
+    margin-top: 30px;
+    padding: 0 20px 16px;
+
+}
+
+.plp_title {
+    font-weight: 500;
+    font-size: 52px;
+    margin-bottom: 20px;
+}
+
+.card_container {
+    display: flex;
+    background: #cfc1c1;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+
+/* src/components/ProductCard.css */
+.product-card {
+    flex: 1 1 calc(25% - 20px);
+    max-width: calc(25% - 20px);
+    text-decoration: none;
+    background: #ffffff;
+    color: inherit;
+    border: 1px solid #dddddd;
+    padding: 16px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* Add subtle shadow for depth */
+}
+
+.product-image {
+    width: 100%;
+    /* Make the image fill the width */
+    height: auto;
+    /* Adjust height proportionally */
+    max-width: 150px;
+    /* Maintain a consistent maximum width */
+    margin-bottom: 12px;
+    /* Add some space below the image */
+    border-radius: 4px;
+    /* Slight rounding for a softer look */
+    object-fit: cover;
+    /* Ensures image covers the entire area */
+}
+
+.product-name {
+    font-size: 18px;
+    margin: 10px 0;
+    text-align: center;
+    font-weight: 600;
+    color: #000000;
+}
+
+.product-price {
+    font-size: 16px;
+    color: #ff4500;
+    font-weight: bold;
+    /* Highlight the price */
+    margin-bottom: 10px;
+    /* Add some space below the price */
+}

@@ -1,0 +1,35 @@
+.banner {
+    height: 95vh;
+    background: url('https://img.lovepik.com/background/20211022/large/lovepik-taobao-tmall-e-commerce-banner-background-image_500603827.jpg') no-repeat center center/cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .banner h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .banner p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .banner button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #ff7f50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .banner button:hover {
+    background-color: #ff4500;
+  }

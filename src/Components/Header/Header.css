@@ -1,6 +1,6 @@
 /* Header.css */
 .header-container {
-  width: 100%;
+  width: min(100%, 1440px);
   height: 50px;
   display: flex;
   justify-content: space-between;

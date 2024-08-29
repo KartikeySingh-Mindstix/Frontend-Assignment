@@ -1,8 +1,9 @@
 import React from 'react'
 import "./App.css"
-import Header from './Components2/Header/Header'
+import Header from './Components/Header/Header'
 import Footer from './Components/Footer/Footer'
 import Home from './Pages/Home/Home'
+import ProductDetailPage from './Pages/ProductDetail/ProductDetailPage'
 
 import {Routes, Route} from 'react-router-dom'
 const App = () => {
@@ -13,8 +14,7 @@ const App = () => {
         <div className='empty_box'></div>
         <Routes>
         <Route path="/" element={<Home />} />
-        
-        <Route path="/product/:id" element={<Home />} />
+        <Route path="/product/:id" element={<ProductDetailPage />} />
         </Routes>
       </div>
       <Footer />

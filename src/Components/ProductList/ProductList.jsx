@@ -1,7 +1,7 @@
 import React from 'react'
 import "./ProductList.css"
 import { Link } from 'react-router-dom'
-const ProductList = ({ products }) => {
+const ProductList = ({ products=[] }) => {
     return (
         <div className="plp_section">
             <div className="plp_title">Featured Products</div>
@@ -15,18 +15,6 @@ const ProductList = ({ products }) => {
 }
 
 
-// const ProductCard = ({ product }) => {
-//     return (
-//         <div className="product-card">
-//             <img src={product.image} alt={product.title} className="product-image" />
-//             <div className="product-info">
-//                 <h3 className="product-name">{product.name}</h3>
-//                 <p className="product-price">${product.price.toFixed(2)}</p>
-//                 <button className="add-to-cart-btn">Add to Cart</button>
-//             </div>
-//         </div>
-//     );
-// };
 import { useNavigate } from 'react-router-dom'; 
 const ProductCard = ({ product }) => {
     const navigate = useNavigate();

@@ -9,14 +9,23 @@ const axiosInstance = axios.create({
 });
 
 export const getLimitedProducts = async (limit = 5) => {
-    try {
-      const response = await axiosInstance.get(`/products?limit=${limit}`);
-      return response.data;
-    } catch (error) {
-      console.error('Error fetching limited products:', error);
-      throw error;
-    }
-  };
+  try {
+    const response = await axiosInstance.get(`/products?limit=${limit}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching limited products:', error);
+    throw error;
+  }
+};
 
+export const getSingleProduct = async (id) => {
+  try {
+    const response = await axiosInstance.get(`/products/` + id);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching limited products:', error);
+    throw error;
+  }
+};
 
 export default axiosInstance

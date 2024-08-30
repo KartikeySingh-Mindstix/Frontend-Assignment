@@ -28,11 +28,11 @@ const ProductDetails = () => {
         <img src={product.image} alt={product.title} className="product-image" />
       </div>
       <div className="product-info-section">
-        <h2 className="product-category">{product.category}</h2>
-        <h1 className="product-title">{product.title}</h1>
-        <p className="product-description">{product.description}</p>
+        <div className="product-category">{product.category}</div>
+        <div className="product-title">{product.title}</div>
+        <div className="product-description">{product.description}</div>
         <div className="product-price">${product.price}</div>
-        <button className="add-to-cart-button">Add to Cart</button>
+        <div className="add-to-cart-button">Add to Cart</div>
       </div>
     </div>
   );

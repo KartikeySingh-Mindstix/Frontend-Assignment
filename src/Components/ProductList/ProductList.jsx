@@ -30,6 +30,7 @@ const ProductCard = ({ product }) => {
                 <p className="product_category">{product.category}</p>
                 <p className="product_price">${product.price.toFixed(2)}</p>
             </div>
+            <div className="add-to-cart-button">Add to Cart</div>
         </div>
     );
 };

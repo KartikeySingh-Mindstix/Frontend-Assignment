@@ -9,6 +9,7 @@
     background-color: #dedede;
     border-bottom: 1px solid #ccc;
     position: fixed;
+    z-index: 9999;
   }
   
   .header_left{

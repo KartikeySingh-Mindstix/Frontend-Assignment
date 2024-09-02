@@ -3,16 +3,14 @@ import "./Header.css"
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import { selectHeader } from '../../Features/Header/headerSlice';
 import Dropdown from '../Dropdown/Dropdown';
 
+import CartIcon from '../../icons/cartIcon';
 
 
 
 const Header = () => {
-    const { navigationTabs2 } = useSelector(selectHeader);
-
-
+    const { navigationTabs2 } = useSelector(state=>state.header);
     return (
         <header className="header_container">
             <div className="header_main">
@@ -44,7 +42,7 @@ const Header = () => {
                 {/* Right Section: Search and Icons */}
                 <div className="header_right">
                     <input type="text" placeholder="Search" className="search_input" />
-                    <span className="icon cart_icon with_notification">🛒</span>
+                    <span className="icon cart_icon with_notification"><CartIcon /></span>
                     <span className="icon cart_icon with_notification">Login</span>
                 </div>
             </div>
@@ -77,7 +75,7 @@ const Header = () => {
                 {/* Right Section: Search and Icons */}
                 <div className="header_right">
                     <input type="text" placeholder="Search" className="search_input" />
-                    <span className="icon cart_icon with_notification">🛒</span>
+                    <span className="icon cart_icon with_notification"><CartIcon /></span>
                     <span className="icon cart_icon with_notification">Login</span>
                 </div>
             </div>

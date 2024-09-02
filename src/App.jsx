@@ -1,10 +1,11 @@
 import React from 'react'
 import "./App.css"
-import Header from './Components/Header/Header'
-import Footer from './Components/Footer/Footer'
-import Home from './Pages/Home/Home'
-import Cart from './Pages/Cart/Cart';
-import ProductDetailPage from './Pages/ProductDetail/ProductDetailPage'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
+import HomePage from './pages/Home/Home'
+import CartPage from './pages/CartPage/CartPage.jsx';
+import ProductDetailPage from './pages/ProductDetail/ProductDetailPage'
+import Toast from './components/Toast/Toast.jsx'
 import {Routes, Route} from 'react-router-dom'
 const App = () => {
   return (
@@ -13,11 +14,12 @@ const App = () => {
       <div className='content'>
         <div className='empty_box'></div>
         <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/product/:id" element={<ProductDetailPage />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={<CartPage />} />
         </Routes>
       </div>
+      <Toast />
       <Footer />
     </div>
   )

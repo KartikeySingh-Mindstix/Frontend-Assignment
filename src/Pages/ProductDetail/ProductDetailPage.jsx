@@ -3,10 +3,18 @@ import React, {useState, useEffect} from 'react';
 import './ProductDetailPage.css';
 import { useParams } from 'react-router-dom';
 import { getSingleProduct } from '../../Axios/axiosInstance';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/cart/cartActions';
 const ProductDetails = () => {
   
   const {id} = useParams();
   const [product, setProduct] = useState({})
+  const dispatch = useDispatch()
+
+
+  const handleAddToCartClick = () => {
+    dispatch(addToCart(product));
+};
 
   useEffect(()=>{
     const getProduct= async ()=>{
@@ -31,8 +39,8 @@ const ProductDetails = () => {
         <div className="product-category">{product.category}</div>
         <div className="product-title">{product.title}</div>
         <div className="product-description">{product.description}</div>
-        <div className="product-price">${product.price}</div>
-        <div className="add-to-cart-button">Add to Cart</div>
+        <div className="product-price">$ {product.price}</div>
+        <div onClick = {handleAddToCartClick} className="add-to-cart-button">Add to Cart</div>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@
   width: min(100%, 1440px);
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 150vh;
   margin: auto;
   position: relative;
 }

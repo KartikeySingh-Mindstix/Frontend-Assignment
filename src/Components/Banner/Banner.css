@@ -1,6 +1,6 @@
 .banner {
-  height: 95vh;
-  background:linear-gradient(115deg, #e7c6c6 20%, #5f82b3 80%);
+  height: 90vh;
+  background:linear-gradient(180deg, hsl(68, 57%, 90%) 10%, #a2d0f5 90%, hwb(207 64% 4%) 50%);
   color: #333;
   display: flex;
   flex-direction: column;
@@ -9,6 +9,7 @@
   text-align: center;
   padding: 20px;
   border-radius: 2px;
+  
 }
 
 .banner h1 {
@@ -24,7 +25,7 @@
 .banner button {
   padding: 10px 20px;
   font-size: 1.2rem;
-  background-color: #ff7f50; /* Retain button style */
+  background-color: #045e4f; 
   color: white;
   border: none;
   cursor: pointer;
@@ -32,5 +33,5 @@
 }
 
 .banner button:hover {
-  background-color: #ff4500; /* Retain hover effect */
+  background-color: #37059a; /* Retain hover effect */
 }

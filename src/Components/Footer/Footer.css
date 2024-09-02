@@ -1,6 +1,7 @@
 
 .footer {
     background-color: #dad7d7;
+    background:linear-gradient(100deg, hsl(100, 46%, 95%) 10%, #a2d0f5 90%, hwb(207 64% 4%) 50%);
     color: #333;
     font-family: 'Arial', sans-serif;
     padding: 20px 60px;

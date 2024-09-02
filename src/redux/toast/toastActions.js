@@ -11,11 +11,11 @@ export const removeToast = (id) => ({
 });
 
 
-export const addToastWithTimeOut = (message, type, timeout=1000) => dispatch => {
+export const addToastWithTimeOut = (message, type, timeout=3000) => dispatch => {
     const toastId = Date.now();
     dispatch(addToast({id: toastId, type, message}))
 
     setTimeout(() => {
-       removeToast(toastId) 
+       dispatch(removeToast(toastId)) 
     }, timeout);
 }

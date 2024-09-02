@@ -1,5 +1,6 @@
 /* Header.css */
 .header_main {
+  background:linear-gradient(100deg, hsl(68, 57%, 90%) 10%, #a2d0f5 90%, hwb(207 64% 4%) 50%);
     width: min(100%, 1440px);
     height: 50px;
     display: flex;

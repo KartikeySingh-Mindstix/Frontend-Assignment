@@ -5,6 +5,7 @@
 }
 
 .container {
+  
   width: min(100%, 1440px);
   display: flex;
   flex-direction: column;
@@ -16,6 +17,8 @@
 .content {
   padding: 0 20px;
   background: rgb(255, 255, 255);
+  
+
   flex: 1;
   /* text-align: center; */
 }

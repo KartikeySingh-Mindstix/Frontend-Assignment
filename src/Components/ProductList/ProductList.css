@@ -3,10 +3,10 @@
     padding: 10px 20px;
 }
 
-.plp_title {
+.plp_title_container {
     font-weight: 500;
     font-size: 52px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .card_container {
@@ -14,11 +14,10 @@
     display: flex;
     background: #ffffff;
     overflow: auto;
-    gap: 50px;
+    gap: 40px;
 }
+
 .card_container::-webkit-scrollbar {
-  height: 1px; 
-    width: 6px;  
+    height: 1px;
+    width: 6px;
 }
-
-

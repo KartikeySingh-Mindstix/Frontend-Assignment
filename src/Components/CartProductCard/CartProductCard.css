@@ -104,7 +104,7 @@
 
 .cart-card-right-section {
     /* flex: 1; */
-    width: 150px;
+    /* width: 150px; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;

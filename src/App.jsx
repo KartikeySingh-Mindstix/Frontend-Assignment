@@ -7,6 +7,7 @@ import CartPage from './pages/CartPage/CartPage.jsx';
 import ProductDetailPage from './pages/ProductDetail/ProductDetailPage'
 import Toast from './components/Toast/Toast.jsx'
 import {Routes, Route} from 'react-router-dom'
+import CategoryPage from './pages/CategoryPage/CategoryPage.jsx'
 const App = () => {
   return (
     <div className='container'>
@@ -16,6 +17,7 @@ const App = () => {
         <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/product/:id" element={<ProductDetailPage />} />
+        <Route path="/category/:categoryName" element={<CategoryPage />} />
         <Route path="/cart" element={<CartPage />} />
         </Routes>
       </div>

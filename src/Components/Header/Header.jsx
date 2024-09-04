@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import "./Header.css"
 import { Link } from 'react-router-dom';
 
@@ -7,10 +7,25 @@ import Dropdown from '../Dropdown/Dropdown';
 
 import CartIcon from '../../icons/cartIcon';
 
-
-
+import axios from '../../Axios/axiosInstance';
 const Header = () => {
-    const { navigationTabs2 } = useSelector(state=>state.header);
+    const { navigationTabs2 } = useSelector(state => state.header);
+    const [categories, setCategories] = useState([]);
+    console.log(categories);
+    useEffect(() => {
+        const getAllCategories = async () => {
+            try {
+                const res = await axios.get('/products/categories')
+                setCategories(res.data);
+
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getAllCategories()
+    }, [])
+
+
     return (
         <header className="header_container">
             <div className="header_main">
@@ -27,14 +42,18 @@ const Header = () => {
                 <div className="header_center">
                     <nav className="nav_links">
                         <ul>
-                            {navigationTabs2.map((tab, index) => (
+                            {/* {navigationTabs2.map((tab, index) => (
                                 <li key={index} className="dropdown_section">
                                     <Link style={{ textDecoration: 'none', color: '#333', fontWeight: 'bold' }} to={tab.link}>
                                         <div className='dropdown_title'>{tab.title}</div>
                                     </Link>
                                     {tab.type === "dropdown" && <Dropdown segments={tab.dropdown} />}
                                 </li>
-                            ))}
+                            ))} */}
+                            {categories.map((tab, index) => {
+
+                                return (<li key={index} className="dropdown_section"><Link style={{ textDecoration: 'none', color: '#333', fontWeight: 'bold' }} to={"/category/" + tab}><div className='dropdown_title'>{tab}</div></Link></li>)
+                            })}
                         </ul>
                     </nav>
                 </div>

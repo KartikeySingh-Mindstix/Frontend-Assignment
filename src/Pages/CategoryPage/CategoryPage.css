@@ -1,0 +1,23 @@
+.category-page-container {
+    padding: 20px;
+}
+
+.category-title {
+    /* border: 2px solid black; */
+    text-align: center;
+    font-weight: 500;
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+    text-decoration: underline;
+}
+
+.products-grid {
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 20px; */
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}

@@ -1,15 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import "./Home.css"
 import { getLimitedProducts } from '../../Axios/axiosInstance';
 import Banner from '../../Components/Banner/Banner';
 import ProductList from '../../Components/ProductList/ProductList';
 
 const Home = () => {
-
     const [products, setProducts] = useState([]);
-
     useEffect(() => {
-        console.log('inside home.js')
         const fetchProducts = async () => {
             try {
                 const productsData = await getLimitedProducts(11); 
@@ -23,11 +20,18 @@ const Home = () => {
 
         fetchProducts();
     }, []);
+    
+    const handleScrollOnClick = ()=>{
+        const headerHeight = document.querySelector('.header_main').offsetHeight
+        const scrollHeight = document.querySelector('.plp_section').offsetTop
+        console.log(headerHeight, scrollHeight)
+        window.scrollTo({ top: (scrollHeight - headerHeight), behavior: "smooth" })
+    }
 
     return (
         <div>
-            <Banner />
-            <ProductList products={products} />
+            <Banner clickHandler={handleScrollOnClick} />
+            <div><ProductList products={products} /></div>
         </div>
     );
 };

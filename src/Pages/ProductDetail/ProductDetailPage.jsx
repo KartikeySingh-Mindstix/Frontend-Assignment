@@ -5,8 +5,10 @@ import { useParams } from 'react-router-dom';
 import { getSingleProduct } from '../../Axios/axiosInstance';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/cart/cartActions';
+import useToast from '../../hooks/toastHook';
+
 const ProductDetails = () => {
-  
+  const {showToast}  = useToast();
   const {id} = useParams();
   const [product, setProduct] = useState({})
   const dispatch = useDispatch()
@@ -14,6 +16,7 @@ const ProductDetails = () => {
 
   const handleAddToCartClick = () => {
     dispatch(addToCart(product));
+    showToast("Added To Cart Successfully", 'success')
 };
 
   useEffect(()=>{

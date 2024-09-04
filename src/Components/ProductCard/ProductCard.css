@@ -1,0 +1,105 @@
+.card-product-card {
+    flex-shrink: 0;
+    width: 290px;
+    height: 550px; 
+    /* border-radius: 10px; */
+    /* gap: 10px; */
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 10px rgba(53, 52, 52, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    margin: 20px auto; 
+    border: 2px solid rgb(179, 176, 176);
+  }
+  
+  .product-card-image-container {
+    /* background: white; */
+    height: 50%;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .product-card-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure the image covers the container without stretching */
+  }
+  
+  .product-card-bottom{
+    height: 45%;
+    /* padding: 10px; */
+    /* background: rgb(159, 28, 28); */
+    border-top: 2px solid rgb(215, 198, 198);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* border-radius: 0 0px 10px 10px; */
+  }
+  
+  .product-card-details{
+    flex-grow: 1;
+    padding: 10px;
+    background: rgb(243, 248, 248);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product-card-title{
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .product-card-category{
+    margin-bottom: 5px;
+    color: gray;
+  }
+  
+  .product-card-price-container{
+    margin-top: auto;
+    margin-bottom: 10px;
+  }
+  
+  .product-card-price--original{
+    font-size: 14px;
+    color: grey;
+  }
+  
+  .product-card-price--current{
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .product-atc-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background: rgb(0, 3, 3);
+    color: rgb(228, 223, 223);
+    transition: all 0.3s ease;
+    border-top: 1px solid rgb(10, 9, 9);
+    /* border-radius: 0 0px 10px 10px; */
+    cursor: pointer;
+    /* font-size: 16px; */
+  
+    /* margin-top: auto; */
+  }
+  
+  .product-atc-btn:hover {
+    background: rgb(243, 248, 248);
+    color: rgb(14, 5, 5);
+    border: 2px solid black;
+    font-size: 18px;
+  }
+  
+  .product-atc-btn:focus{
+    background: rgb(16, 14, 14);
+  }

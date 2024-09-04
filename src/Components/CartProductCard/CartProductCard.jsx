@@ -4,6 +4,7 @@ import { FaTrashAlt, FaHeart, FaPlus, FaMinus } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { incrementQuantity, decrementQuantity, removeFromCart } from '../../redux/cart/cartActions';
 import useToast from '../../hooks/toastHook';
+import { Link } from 'react-router-dom';
 
 const CartProductCard = ({product}) => {
 
@@ -22,7 +23,7 @@ const CartProductCard = ({product}) => {
 
   const handleRemoveCart = () =>{
     dispatch(removeFromCart(product.id))
-    showToast("Removed to cart successfully", "success");
+    showToast("Removed from cart successfully", "success");
   }
 
   return (
@@ -35,7 +36,7 @@ const CartProductCard = ({product}) => {
       </div>
       {/* card-middle-section */}
       <div className="cart-card-middle-section">
-        <div className="cart-card-prd-name">{product.title}</div>
+        <Link className="cart-card-prd-name" to={"/product/"+product.id}>{product.title}</Link>
         <div className="cart-card-prd-category">{product.category}</div>
         {/* <div className="cart-card-prd-description">Lorem ipsum dolorviddafd  daf dfs sdf sdf ent sadf dfas nihil.</div> */}
         <div className="cart-card-prd-stock-status">Quantity: {product.quantity}</div>

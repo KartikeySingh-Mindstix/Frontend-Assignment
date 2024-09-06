@@ -1,31 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import './Dropdown.css';
+import { FiChevronDown } from 'react-icons/fi';
 
-const Dropdown = ({ segments }) => {
+const Dropdown = ({ title, titleStyle, children }) => {
+
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
     return (
-        <div className="dropdown_menu">
-            {segments.map((segment, index) => (
-                <div key={index} className="dropdown_segment">
-                    <Link>
-                        <h4 className="segment_title">{segment.segmentTitle}</h4>
-                    </Link>
-
-                    <ul className="segment_options">
-                        {segment.options.map((option, optionIndex) => (
-                            <li key={optionIndex}>
-                                <Link
-                                    className='opiton_link'
-                                    to={option.link}
-                                    style={option.style}
-                                >
-                                    {option.title}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            ))}
+        <div className="dropdown-container">
+            <div
+                className={`dropdown_title`}
+                style={titleStyle}
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            >
+                {title}
+                <FiChevronDown className={`dropdown_icon ${isDropdownOpen ? 'rotate' : ''}`} />
+            </div>
+            <div className="dropdown_menu" style={{display: isDropdownOpen ? "block" : "none"}}>
+                {children}
+            </div>
         </div>
     );
 };

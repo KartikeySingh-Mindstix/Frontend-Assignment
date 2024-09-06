@@ -6,12 +6,16 @@ import ProductList from '../../Components/ProductList/ProductList';
 
 const Home = () => {
     const [products, setProducts] = useState([]);
+    console.log(products)
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const productsData = await getLimitedProducts(11); 
+                const productsData = await getLimitedProducts(20); 
                 console.log('Fetched Products:', productsData);
-                setProducts(productsData);
+
+        
+                setProducts(productsData.products);
+                
                
             } catch (err) {
                 console.log(err)

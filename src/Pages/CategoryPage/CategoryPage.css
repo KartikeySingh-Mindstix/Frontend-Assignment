@@ -1,23 +1,153 @@
 .category-page-container {
+    /* flex: 1; */
+    width: 100%;
+    /* position: relative; */
+    margin-bottom: 20px;
+    /* height: auto; */
     padding: 20px;
 }
 
 .category-title {
-    /* border: 2px solid black; */
-    text-align: center;
-    font-weight: 500;
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: #333;
-    text-decoration: underline;
+    /* text-align: center; */
+    font-size: 42px;
+    margin: 20px 0;
+    color: #636363;
+    /* text-decoration: underline;
+    text-underline-offset: 5px; */
+    border-bottom: 1px solid rgb(206, 206, 206);
+    text-shadow: 2px 1px #f0eded;
+    font-style: italic;
 }
 
-.products-grid {
-    /* display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-    gap: 20px; */
-    display: flex;
+.content-grid {
+    border-top: 1px solid rgb(206, 206, 206);
+    display: grid;
+    grid-template-columns: auto 1fr; 
     gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+    margin-top: 20px;
+    padding: 20px 20px;
 }
+
+
+.filter-section {
+    border-right: 1px solid rgb(206, 206, 206);
+    align-self:flex-start;
+    position: sticky;
+    top: 60px;
+    height: auto;
+    width: 250px;
+    /* border: 2px solid #ddd; */
+    padding: 10px 20px 10px 0;
+    background-color: #ffffff;
+    font-size: 14px; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 10px;
+    justify-items: center;
+}
+
+
+/* Rating Filter */
+
+
+.rating-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.rating-option {
+    display: flex;
+    align-items: center;
+}
+
+.rating-option input[type="radio"] {
+    margin-right: 8px;
+}
+
+.rating-option label {
+    font-size: 14px;
+}
+
+
+/* Sort Filter */
+
+.sort-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sort-option {
+    display: flex;
+    align-items: center;
+}
+
+.sort-option input[type="radio"] {
+    margin-right: 8px;
+}
+
+.sort-option label {
+    font-size: 14px;
+}
+
+
+/* Accordian */
+
+.accordion-container{
+    display: flex;
+    flex-direction: column;
+    
+    padding: 10px 0 10px 0;
+    /* font-size: 16px; */
+}
+
+.accordion-header{
+    padding-bottom: 7px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(206, 206, 206);
+}
+
+.accordion-header-title {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.accordion-toggle-symbol{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.accordion-content{
+    padding: 10px;
+}
+
+/* Price Filter */
+.price-inputs {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.price-input {
+    width: 100px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+
+
+

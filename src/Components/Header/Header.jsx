@@ -1,108 +1,96 @@
-import React, { useState, useEffect } from 'react'
-import "./Header.css"
+import { useState, useEffect } from 'react';
+import './Header.css';
 import { Link } from 'react-router-dom';
-
-import { useSelector } from 'react-redux';
+import { IoPersonOutline } from 'react-icons/io5';
+import CartIcon from '../../icons/CartIcon/CartIcon';
 import Dropdown from '../Dropdown/Dropdown';
+import SearchBar from '../SearchBar/SearchBar';
+import axios from 'axios';
 
-import CartIcon from '../../icons/cartIcon';
-
-import axios from '../../Axios/axiosInstance';
 const Header = () => {
-    const { navigationTabs2 } = useSelector(state => state.header);
-    const [categories, setCategories] = useState([]);
-    console.log(categories);
-    useEffect(() => {
-        const getAllCategories = async () => {
-            try {
-                const res = await axios.get('/products/categories')
-                setCategories(res.data);
+  const [categories, setCategories] = useState([]);
 
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        getAllCategories()
-    }, [])
+  const dropdownNavStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '10px 15px'
+  };
 
+  useEffect(() => {
+    // Fetch categories from the API
+    const fetchCategories = async () => {
+      try {
+        const res = await axios.get('https://dummyjson.com/products/categories');
+        setCategories(res.data);
+      } catch (error) {
+        console.log('Error fetching categories:', error);
+      }
+    };
+    fetchCategories();
+  }, []);
 
-    return (
-        <header className="header_container">
-            <div className="header_main">
-                {/* Left Section: Logo */}
-                <div className="header_left">
-                    <Link to="/">
-                        <div className="logo">
-                            <img src={"https://img.logoipsum.com/280.svg"} />
-                        </div>
-                    </Link>
-                </div>
+  const primaryCategories = categories.slice(0, 4);
+  const extraCategories = categories.slice(4);
 
-                {/* Center Section: Navigation Menu */}
-                <div className="header_center">
-                    <nav className="nav_links">
-                        <ul>
-                            {/* {navigationTabs2.map((tab, index) => (
-                                <li key={index} className="dropdown_section">
-                                    <Link style={{ textDecoration: 'none', color: '#333', fontWeight: 'bold' }} to={tab.link}>
-                                        <div className='dropdown_title'>{tab.title}</div>
-                                    </Link>
-                                    {tab.type === "dropdown" && <Dropdown segments={tab.dropdown} />}
-                                </li>
-                            ))} */}
-                            {categories.map((tab, index) => {
-
-                                return (<li key={index} className="dropdown_section"><Link style={{ textDecoration: 'none', color: '#333', fontWeight: 'bold' }} to={"/category/" + tab}><div className='dropdown_title'>{tab}</div></Link></li>)
-                            })}
-                        </ul>
-                    </nav>
-                </div>
-
-                {/* Right Section: Search and Icons */}
-                <div className="header_right">
-                    <input type="text" placeholder="Search" className="search_input" />
-                    <span className="icon cart_icon with_notification"><CartIcon /></span>
-                    <span className="icon cart_icon with_notification">Login</span>
-                </div>
+  return (
+    <div className="header_container">
+      <div className="header_main">
+        {/* Left Section: Logo */}
+        <div className="header_left">
+          <Link to="/">
+            <div className="logo">
+              <img src={"https://img.logoipsum.com/280.svg"} alt="Logo" />
             </div>
-            <div className="header_main-sm">
-                {/* Left Section: Logo */}
-                <div className="header_left">
-                    <Link to="/">
-                        <div className="logo">
-                            <img src={'https://img.logoipsum.com/280.svg'} />
-                        </div>
-                    </Link>
-                </div>
+          </Link>
+        </div>
 
-                {/* Center Section: Navigation Menu */}
-                <div className="header_center">
-                    <nav className="nav_links">
-                        <ul>
-                            {navigationTabs2.map((tab, index) => (
-                                <li key={index} className="dropdown_section">
-                                    <Link style={{ textDecoration: 'none', color: '#333', fontWeight: 'bold' }} to={tab.link}>
-                                        <div className='dropdown_title'>{tab.title}</div>
-                                    </Link>
-                                    {tab.type === "dropdown" && <Dropdown segments={tab.dropdown} />}
-                                </li>
-                            ))}
-                        </ul>
-                    </nav>
+        {/* Center Section: Navigation Menu */}
+        <div className="header_center">
+          <div className="nav_sections">
+            <div className="nav_items">
+              {primaryCategories.map((tab, index) => (
+                <div key={index} className="nav_item">
+                  <Link className="nav_link" to={`/category/${tab.slug}`} reloadDocument>
+                    {tab.name}
+                  </Link>
                 </div>
+              ))}
+              {extraCategories.length > 0 && (
 
-                {/* Right Section: Search and Icons */}
-                <div className="header_right">
-                    <input type="text" placeholder="Search" className="search_input" />
-                    <span className="icon cart_icon with_notification"><CartIcon /></span>
-                    <span className="icon cart_icon with_notification">Login</span>
-                </div>
+                <Dropdown title={"More"} titleStyle={dropdownNavStyle}>
+                  <div className="header_dropdown_section">
+                    {extraCategories.map((extraTab, index) => (
+                      <div key={index} className="dropdown_item">
+                        <Link className="header_dropdown_link" to={`/category/${extraTab.slug}`} reloadDocument>
+                          {extraTab.name}
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                </Dropdown>
+              )}
             </div>
-        </header>
-    );
+          </div>
+        </div>
+
+        {/* Right Section: Search and Icons */}
+        <div className="header_right">
+          <SearchBar />
+          <div className="icon_container">
+            <div className="cart_link">
+              <div className="cart_icon">
+                <CartIcon />
+              </div>
+            </div>
+            <div className="user_icon">
+              <IoPersonOutline />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
+
 export default Header;
-
-
-
-

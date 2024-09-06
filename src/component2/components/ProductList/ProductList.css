@@ -1,0 +1,26 @@
+.plp_section {
+    margin: 30px 0;
+    padding: 10px 20px;
+}
+
+.plp_title_container {
+    font-weight: 500;
+    font-size: 52px;
+    margin-bottom: 10px;
+}
+
+.card_container {
+    /* max-height: 450px; */
+    height: auto;
+    padding: 0 1px;
+    display: flex;
+    background: #ffffff;
+    overflow-x: auto;
+    overflow-y:hidden;
+    gap: 20px;
+}
+
+.card_container::-webkit-scrollbar {
+    height: 1px;
+    width: 6px;
+}

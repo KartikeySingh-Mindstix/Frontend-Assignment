@@ -1,0 +1,113 @@
+.card-product-card {
+    /* flex-shrink: 0; */
+    max-height: 450px;
+    min-width: 250px;
+    width: 100%;
+    /* max-width: 300px; */
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 10px rgba(53, 52, 52, 0.1);
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    /* margin: 20px auto;  */
+    border: 2px solid rgb(226, 226, 226);
+  }
+  
+  .product-card-image-container {
+    /* background: rgb(196, 177, 131); */
+    /* flex-shrink: 0; */
+    height: 50%;
+    max-height: 250px;
+    /* height: 245px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .product-card-image-container img {
+    /* background: #dee79e; */
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .product-card-bottom{
+    /* height: 45%; */
+    flex: 1;
+    /* padding: 10px; */
+    /* background: rgb(159, 28, 28); */
+    border-top: 2px solid rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* border-radius: 0 0px 10px 10px; */
+  }
+  
+  .product-card-details{
+    flex-grow: 1;
+    padding: 10px;
+    background: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product-card-title{
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .product-card-category{
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: rgb(110, 107, 107);
+  }
+
+  
+  .product-card-price-container{
+    margin-top: auto;
+    margin-bottom: 10px;
+  }
+  
+  .product-card-price--original > del{
+    font-size: 14px;
+    color: grey;
+  }
+  
+  .product-card-price--current{
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .product-atc-btn{
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background: rgb(83, 83, 83);
+    color: rgb(228, 223, 223);
+    transition: all 0.3s ease;
+    border-top: 1px solid rgb(10, 9, 9);
+    /* border-radius: 0 0px 10px 10px; */
+    cursor: pointer;
+    font-size: 18px;
+  
+    /* margin-top: auto; */
+  }
+  
+  .product-atc-btn:hover {
+    background: rgb(245, 242, 242);
+    color: rgb(14, 5, 5);
+    border: 2px solid black;
+    font-size: 20px;
+  }
+  
+  .product-atc-btn:focus{
+    background: rgb(16, 14, 14);
+  }

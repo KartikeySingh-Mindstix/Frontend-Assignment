@@ -31,7 +31,7 @@ const CartProductCard = ({product}) => {
       {/* Left Section */}
       <div className="cart-card-left-section">
         <div className='cart-card-prd-image-container'>
-          <img src={product.image} className='cart-card-prd-image' />
+          <img src={product.thumbnail} className='cart-card-prd-image' />
         </div>
       </div>
       {/* card-middle-section */}

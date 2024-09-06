@@ -3,21 +3,39 @@
     padding: 10px 20px;
 }
 
-.plp_title_container {
-    font-weight: 500;
-    font-size: 52px;
-    margin-bottom: 10px;
+.plp_section_title_container {
+    
+    margin-bottom: 20px;
+    display: flex;
+    padding-bottom: 5px;
+    border-bottom:1px solid rgb(217, 216, 216);
+    justify-content: space-between;
 }
 
-.card_container {
+.plp_section_title{
+    align-self: flex-end;
+    font-weight: 500;
+    font-size: 42px;
+}
+
+.plp_section_redirect_link{
+    font-weight: 500;
+    font-size: 28px;
+    align-self: flex-end;
+}
+
+.plp_section_card_container {
+    /* max-height: 450px; */
+    height: auto;
     padding: 0 1px;
     display: flex;
     background: #ffffff;
-    overflow: auto;
-    gap: 40px;
+    overflow-x: auto;
+    overflow-y:hidden;
+    gap: 20px;
 }
 
-.card_container::-webkit-scrollbar {
+.plp_section_card_container::-webkit-scrollbar {
     height: 1px;
     width: 6px;
 }

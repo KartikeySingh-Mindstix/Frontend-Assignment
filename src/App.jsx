@@ -8,6 +8,7 @@ import ProductDetailPage from './pages/ProductDetail/ProductDetailPage'
 import Toast from './components/Toast/Toast.jsx'
 import {Routes, Route} from 'react-router-dom'
 import CategoryPage from './pages/CategoryPage/CategoryPage.jsx'
+import SearchPage from './pages/SearchPage/SearchPage.jsx'
 const App = () => {
   return (
     <div className='container'>
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/product/:id" element={<ProductDetailPage />} />
         <Route path="/category/:categoryName" element={<CategoryPage />} />
+        <Route path="/search" element={<SearchPage />} />
         <Route path="/cart" element={<CartPage />} />
         </Routes>
       </div>

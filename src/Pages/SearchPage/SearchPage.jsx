@@ -1,51 +1,107 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import './SearchPage.css';
 import Loading from '../../components/Modal/Loading/Loading';
 import { FaMinus, FaPlus } from 'react-icons/fa';
-import { getLimitedProducts } from '../../Axios/axiosInstance';
+import { getLimitedProducts, getProductsByCategory } from '../../Axios/axiosInstance';
 
 const SearchPage = () => {
     const location = useLocation()
+    const query = new URLSearchParams(location.search).get('q') || '';
 
-    const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [products, setProducts] = useState([]);
     const [ratingFilter, setRatingFilter] = useState(0);
     const [sortOption, setSortOption] = useState('');
-    const [minPrice, setMinPrice] = useState('');  // New state for minimum price
-    const [maxPrice, setMaxPrice] = useState('');  // New state for maximum price
+    const [minPrice, setMinPrice] = useState('');
+    const [maxPrice, setMaxPrice] = useState('');
+
 
     const sortingOptions = [
         { value: "price-asc", label: "Price: Low To High" },
         { value: "price-desc", label: "Price: High To Low" },
         { value: "rating-desc", label: "Rating: High To Low" }
     ];
+    
+    // const filteredProducts = getFilteredProducts(
+    // const getFilteredProducts = () => {
+    //     let filteredProducts = [...products];
 
 
-    const filterProductsByQuery = (products, query) => {
-        if (!query) return products;
+    //     if (ratingFilter > 0) {
+    //         filteredProducts = filteredProducts.filter(product => product.rating >= ratingFilter);
+    //     }
 
-        return products.filter((product) => {
-            const lowerCaseQuery = query.toLowerCase();
-            return (
-                product.title.toLowerCase().includes(lowerCaseQuery) ||  
-                product.category.toLowerCase().includes(lowerCaseQuery) ||  
-                product.tags.some(tag => tag.toLowerCase().includes(lowerCaseQuery))
-            );
-        });
-    };
+    //     if (minPrice !== '' || maxPrice !== '') {
+    //         filteredProducts = filteredProducts.filter(product => {
+    //             const price = product.price;
+    //             if (minPrice !== '' && price < minPrice) return false;
+    //             if (maxPrice !== '' && price > maxPrice) return false;
+    //             return true;
+    //         });
+    //     }
+
+    //     if (sortOption) {
+    //         filteredProducts.sort((a, b) => {
+    //             if (sortOption === 'price-asc') return a.price - b.price;
+    //             if (sortOption === 'price-desc') return b.price - a.price;
+    //             if (sortOption === 'rating-desc') return b.rating - a.rating;
+    //             return 0;
+    //         });
+    //     }
+
+    //     return filteredProducts;
+    // };
 
 
 
-    const getFilteredProducts = () => {
+
+    // This useEffect to fetch all product and fitler it out on the basis of query.
+   
+   
+    useEffect(() => {
+
+        const filterProductsByQuery = (products, query) => {
+            if (!query) return products;
+            return products.filter((product) => {
+                const lowerCaseQuery = query.toLowerCase();
+                return (
+                    product.title.toLowerCase().includes(lowerCaseQuery) ||
+                    product.category.toLowerCase().includes(lowerCaseQuery) ||
+                    product.tags.some(tag => tag.toLowerCase().includes(lowerCaseQuery))
+                );
+            });
+        }
+
+
+        const fetchProductsByQuery = async () => {
+            try {
+                const data = await getLimitedProducts(190);
+                // console.log(data)
+                const filteredProducts = filterProductsByQuery(data.products, query);
+                setProducts(filteredProducts);
+                setIsLoading(false);
+            } catch (error) {
+                console.log(error);
+                setIsLoading(false);
+            }
+        }
+        fetchProductsByQuery();
+    }, [location]);
+
+
+    // filter products based on custom fitlers
+
+    const filteredProducts = useMemo(()=>{
         let filteredProducts = [...products];
-
-
+        
+        // Apply rating filter
         if (ratingFilter > 0) {
             filteredProducts = filteredProducts.filter(product => product.rating >= ratingFilter);
         }
 
+        // Apply price filter
         if (minPrice !== '' || maxPrice !== '') {
             filteredProducts = filteredProducts.filter(product => {
                 const price = product.price;
@@ -55,6 +111,7 @@ const SearchPage = () => {
             });
         }
 
+        // Apply sorting
         if (sortOption) {
             filteredProducts.sort((a, b) => {
                 if (sortOption === 'price-asc') return a.price - b.price;
@@ -65,42 +122,15 @@ const SearchPage = () => {
         }
 
         return filteredProducts;
-    };
 
-    const filteredProducts = getFilteredProducts();
+    },[products, ratingFilter, minPrice, maxPrice, sortOption])
 
-    // Fetch products based on category
-
-
-
-    const fetchProducts = async () => {
-        try {
-            const data = await getLimitedProducts(190);
-            setProducts(data);
-            setIsLoading(false);
-        } catch (error) {
-            console.log(error);
-            setIsLoading(false);
-        }
-    };
-
-
-    const getQueryParams = () => {
-        const searchParams = new URLSearchParams(location.search); // Parse the query string
-        const query = searchParams.get('q'); // Extract the 'q' parameter
-        return { query };
-    };
-
-    useEffect(() => {
-        const {query} = getQueryParams();
-        console.log(query)
-        fetchProducts();
-    }, [location.search]);
 
     return (
         <div className="search-page-container">
             {isLoading && <Loading />}
-            <div className="search-page-title">Search results</div>
+            <div className="search-page-title">Search results for &#34;{query}&#34;</div>
+
             <div className="search-page-content-grid">
                 {/* Filter Section */}
                 <div className="search-page-filter-section">

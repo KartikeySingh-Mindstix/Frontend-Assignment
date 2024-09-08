@@ -16,7 +16,7 @@
 .search-page-content-grid {
     border-top: 1px solid rgb(206, 206, 206);
     display: grid;
-    grid-template-columns: auto 1fr; 
+    grid-template-columns: auto 1fr;
     gap: 20px;
     margin-top: 20px;
     padding: 20px 20px;
@@ -30,13 +30,14 @@
     width: 250px;
     padding: 10px 20px 10px 0;
     background-color: #ffffff;
-    font-size: 14px; 
+    font-size: 14px;
     display: flex;
     flex-direction: column;
-    gap: 20px; 
+    gap: 20px;
 }
 
 .search-page-products-grid {
+    align-self: flex-start;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 10px;
@@ -109,19 +110,57 @@
 
 .search-page-accordion-content {
     padding: 10px;
+    width: 100%;
 }
 
 
-.search-page-price-inputs {
+/* .search-page-price-inputs {
     display: flex;
     gap: 10px;
     margin-top: 10px;
-}
-
-.search-page-price-input {
-    width: 100px;
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-}
+} */
+/* Container for price inputs */
+.search-page-price-inputs {
+    display: flex; /* Flexbox for horizontal alignment */
+    gap: 10px; /* Space between input fields */
+    width: 100%;
+    padding: 10px; 
+    align-items: center; 
+    justify-content: space-between; 
+  }
+  
+  /* Input field styles */
+  .search-page-price-input {
+    /* flex: 1; */
+    width: 50%;
+    padding: 10px 5px; 
+    font-size: 10px; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  }
+  
+  /* Hover effect */
+  .search-page-price-input:hover {
+    border-color: #aaa; /* Darker border on hover */
+  }
+  
+  /* Focus effect */
+  .search-page-price-input:focus {
+    border-color: #4a90e2; /* Highlight border on focus */
+    box-shadow: 0 4px 8px rgba(74, 144, 226, 0.2); /* Stronger shadow on focus */
+  }
+  
+  /* Remove arrows from number input */
+  .search-page-price-input::-webkit-inner-spin-button,
+  .search-page-price-input::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Remove spinner in WebKit browsers */
+    margin: 0;
+  }
+  
+  .search-page-price-input {
+    -moz-appearance: textfield; /* Remove spinner in Firefox */
+  }
+  

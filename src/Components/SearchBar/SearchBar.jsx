@@ -21,7 +21,7 @@ const SearchBar = () => {
         <div>
             <div className="search_input_container">
                 <input
-                    type="text"
+                    type="search"
                     placeholder="Search"
                     className="search_input"
                     value={searchQuery}
@@ -29,7 +29,6 @@ const SearchBar = () => {
                     onChange={e => setSearchQuery(e.target.value)}
                 />
                 <FiSearch className="search_icon" />
-                <FiX className="clear_icon" onClick={handleClearSearch} />
             </div>
         </div>
     )
